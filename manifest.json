@@ -1,0 +1,27 @@
+{
+	"manifest_version": 2,
+	"name": "SameTab - keep only one copy of the tab open",
+	"description": "",
+	"version": "1.0",
+
+	"browser_action": {
+		"xdefault_icon": "icon.png",
+		"xdefault_popup": "popup.html"
+	},
+
+	"background": {
+		"scripts": ["index.js"]
+	},
+
+	"content_scripts": [
+		{
+			"matches": ["*://*/*"],
+			"js": ["content.js"]
+		}
+	],
+
+	"permissions": [
+		"tabs",
+		"activeTab"
+	]
+}
