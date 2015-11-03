@@ -2,8 +2,20 @@
 <html>
 	<head>
 		<title></title>
+        <script language="JavaScript" src="settings.js"></script>
 	</head>
-	<body>
+	<body style="width:350px">
 		<h3>SameTab settings</h3>
+        <dl>
+            <dt>Show a notification box when SameTab found a tab to close.</dt>
+            <dd><input type="checkbox" id="showNotifications"/><label for="showNotifications">Show notifications</label></dd>
+            <hr/>
+            <dt>Exclude the following URLs from SameTab checks</dt>
+            <dd>
+                <ul id="excludeItemList"></ul>
+                <label for="itemToExclude">New pattern</label>
+                <input type="text" id="itemToExclude"><input type="button" value="+" id="addButton"/>
+            </dd>
+        </dl>
 	</body>
 </html>

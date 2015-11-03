@@ -5,8 +5,8 @@
 	"version": "1.0",
 
 	"browser_action": {
-		"xdefault_icon": "icon.png",
-		"xdefault_popup": "popup.html"
+		"default_icon": "icon.png",
+		"default_popup": "popup.html"
 	},
 
 	"background": {
@@ -22,6 +22,8 @@
 
 	"permissions": [
 		"tabs",
-		"activeTab"
+		"activeTab",
+        "notifications",
+        "storage"
 	]
 }
