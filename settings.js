@@ -1,7 +1,8 @@
 function SameTab_LoadSettings() {
-    chrome.storage.sync.get(["showNotifications", "excludeItemList"], function (items) {
+    chrome.storage.sync.get(["showNotifications", "excludeItemList", "doReload"], function (items) {
         console.log(items);
         document.getElementById("showNotifications").checked = !!items["showNotifications"];
+        document.getElementById("doReload").checked = !!items["doReload"];
         if (items["excludeItemList"]) {
             SameTab_ExcludeItemList_Clear();
             for (var i = 0; i < items["excludeItemList"].length; i++) {
@@ -57,6 +58,15 @@ function SameTab_ShowNotification_OnChange(e) {
     });
 }
 
+function SameTab_DoReload_OnChange(e) {
+    chrome.storage.sync.set({
+        "doReload": !!e.target.checked
+    }, function () {
+        console.log("doReload set");
+        SameTab_NotifySettingsUpdated();
+    });
+}
+
 function SameTab_NotifySettingsUpdated() {
     chrome.runtime.sendMessage(
 		{
@@ -75,6 +85,7 @@ function SameTab_AddButton_OnClick(e) {
 
 function SameTab_SetEventHandlers() {
     document.getElementById("showNotifications").onchange = SameTab_ShowNotification_OnChange;
+    document.getElementById("doReload").onchange = SameTab_DoReload_OnChange;
     document.getElementById("addButton").onclick = SameTab_AddButton_OnClick;
 }
 

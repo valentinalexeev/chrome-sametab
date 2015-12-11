@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "SameTab - keep only one copy of the tab open",
 	"description": "",
-	"version": "1.0",
+	"version": "1.1",
 
 	"browser_action": {
 		"default_icon": "icon.png",
